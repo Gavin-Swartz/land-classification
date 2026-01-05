@@ -4,14 +4,14 @@ from processing_utils import normalize, load
 
 
 def visualize_single_tiff(tif_path):
-  norm_band = normalize(load(tif_path))
+  norm_band = normalize(tif_path)
   plt.imshow(norm_band, cmap='gray')
   plt.axis('off')
   plt.show()
 
 
 def visualize_rgb_tiff(red, green, blue):
-  rgb = np.dstack([normalize(load(red)), normalize(load(green)), normalize(load(blue))])
+  rgb = np.dstack([normalize(red), normalize(green), normalize(blue)])
   plt.imshow(rgb)
   plt.axis("off")
   plt.show()
