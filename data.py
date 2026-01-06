@@ -60,8 +60,8 @@ def get_data(bbox_coords, client_id, client_secret):
                   "type": "sentinel-2-l1c",
                   "dataFilter": {
                       "timeRange": {
-                          "from": "2022-06-01T00:00:00Z",
-                          "to": "2025-07-31T00:00:00Z",
+                          "from": "2024-01-01T00:00:00Z",
+                          "to": "2024-01-31T00:00:00Z",
                       }, 
                       "maxCloudCoverage": 10
                   },
