@@ -14,7 +14,7 @@ AWEI_NSH is used to identify water based on findings from [this](https://doi.org
 - Green (band 3)
 - SWIR3 (band 11)
 
-NDSI values of 0.4 or greater indicate snow cover. However, as explained in [this Earth Lab blog](https://earthlab.colorado.edu/blog/how-differentiate-between-water-and-snow-remote-sensing), NDSI struggles to differentiate between water and snow. The solution is to ignore areas identified using NDSI as snow which intersect with pixels identified as water.  
+NDSI values of 0.4 or greater indicate snow cover. However, as explained in [this Earth Lab blog](https://earthlab.colorado.edu/blog/how-differentiate-between-water-and-snow-remote-sensing), NDSI struggles to differentiate between water and snow. The solution is to ignore areas already identified as water that intersect with the pixels identified as snow.
 
 ### Vegetation Health
 [NDVI](https://www.earthdata.nasa.gov/topics/land-surface/normalized-difference-vegetation-index-ndvi) is a common and simple vegetation index used to monitor vegetation health. NDVI uses the following bands:

@@ -1,0 +1,67 @@
+# Sentinel-2 L1C band information.
+# Obtained from: https://docs.sentinel-hub.com/api/latest/data/sentinel-2-l1c/
+B01:
+  index: 0
+  resolution: 60
+  central_wavelength: 442
+  description: Coastal aerosol
+B02:
+  index: 1
+  resolution: 10
+  central_wavelength: 492
+  description: Blue
+B03:
+  index: 2
+  resolution: 10
+  central_wavelength: 559
+  description: Green
+B04:
+  index: 3
+  resolution: 10
+  central_wavelength: 665
+  description: Red
+B05:
+  index: 4
+  resolution: 20
+  central_wavelength: 704
+  description: Vegetation Red Edge
+B06:
+  index: 5
+  resolution: 20
+  central_wavelength: 740
+  description: Vegetation Red Edge
+B07:
+  index: 6
+  resolution: 20
+  central_wavelength: 781
+  description: Vegetation Red Edge
+B08:
+  index: 7
+  resolution: 10
+  central_wavelength: 832
+  description: NIR
+B8A:
+  index: 8
+  resolution: 20
+  central_wavelength: 864
+  description: Narrow NIR
+B09:
+  index: 9
+  resolution: 60
+  central_wavelength: 944
+  description: Water Vapour
+B10:
+  index: 10
+  resolution: 60
+  central_wavelength: 1376
+  description: SWIR - Cirrus
+B11:
+  index: 11
+  resolution: 20
+  central_wavelength: 1612
+  description: SWIR
+B12:
+  index: 12
+  resolution: 20
+  central_wavelength: 2195
+  description: SWIR

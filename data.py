@@ -1,5 +1,6 @@
 from oauthlib.oauth2 import BackendApplicationClient
 from requests_oauthlib import OAuth2Session
+from config.read_config import read_config_file
 from rasterio.io import MemoryFile
 
 # Given a center point, get the optimal bounding box for Sentinel-2.
@@ -100,3 +101,13 @@ def get_data(bbox_coords, client_id, client_secret):
   print("Number of bands:", raster.shape[0])
   print("Raster size:", raster.shape[1], "x", raster.shape[2])
   return raster, profile
+
+
+def map_bands(raster):
+  band_config = read_config_file('./config/band_config.yaml')
+
+  bands = {}
+  for band_name, band_meta in band_config.items():
+    bands[band_name] = raster[band_meta['index']]
+
+  return bands
