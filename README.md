@@ -1,5 +1,5 @@
 # land-classification
-A project for classifying land cover using multispectral data from Sentinel-2.
+A project for classifying land cover using multispectral data from [Sentinel-2](https://dataspace.copernicus.eu/data-collections/copernicus-sentinel-data/sentinel-2).
 
 ## Indexes and Classification Methodology
 ### Water

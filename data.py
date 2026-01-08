@@ -3,13 +3,13 @@ from requests_oauthlib import OAuth2Session
 from config.read_config import read_config_file
 from rasterio.io import MemoryFile
 
-# Given a center point, get the optimal bounding box for Sentinel-2.
+# Given a center point, get the optimal bounding box for Sentinel-2
 def make_bbox(lon, lat, km=2):
   d = km / 111          # Convert km to degrees
   return [lon-d, lat-d, lon+d, lat+d]
 
 
-def get_data(bbox_coords, client_id, client_secret):
+def get_data(bbox_coords, client_id, client_secret, from_date, to_date):
   client = BackendApplicationClient(client_id=client_id)
   oauth = OAuth2Session(client=client)
 
@@ -61,8 +61,8 @@ def get_data(bbox_coords, client_id, client_secret):
                   "type": "sentinel-2-l1c",
                   "dataFilter": {
                       "timeRange": {
-                          "from": "2024-01-01T00:00:00Z",
-                          "to": "2024-01-31T00:00:00Z",
+                          "from": from_date,
+                          "to": to_date,
                       }, 
                       "maxCloudCoverage": 10
                   },
@@ -86,12 +86,12 @@ def get_data(bbox_coords, client_id, client_secret):
   url = "https://sh.dataspace.copernicus.eu/api/v1/process"
   response = oauth.post(url, json=request)
 
-  # Check if response is valid.
+  # Check if response is valid
   if response.headers["Content-Type"] != "image/tiff":
     print(response.text)
     raise RuntimeError("No valid Sentinel-2 data for this request.")
 
-  # Convert bytes to NumPy array.
+  # Convert bytes to NumPy array
   with MemoryFile(response.content) as memfile:
     with memfile.open() as dataset:
       raster = dataset.read()      # shape: (bands, height, width)
@@ -111,3 +111,9 @@ def map_bands(raster):
     bands[band_name] = raster[band_meta['index']]
 
   return bands
+
+
+def get_data_params():
+  data_params = read_config_file('./config/data_config.yaml')
+
+  return data_params
